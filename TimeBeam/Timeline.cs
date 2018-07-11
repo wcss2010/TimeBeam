@@ -687,7 +687,7 @@ namespace TimeBeam
                 RectangleF trackExtents = BoundsHelper.GetTrackExtents(track.TrackElements.First(), this);
                 RectangleF labelRect = new RectangleF(0, trackExtents.Y, TrackLabelWidth, trackExtents.Height);
                 graphics.FillRectangle(new SolidBrush(Color.FromArgb(30, 30, 30)), labelRect);
-                graphics.DrawString(track.ID, _labelFont, Brushes.LightGray, labelRect);
+                graphics.DrawString(track.Name, _labelFont, Brushes.LightGray, labelRect);
             }
         }
 

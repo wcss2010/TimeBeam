@@ -11,5 +11,10 @@ namespace TimeBeam
         ///   The elements within this track.
         /// </summary>
         IEnumerable<ITimelineTrack> TrackElements { get; }
+
+        /// <summary>
+        /// The Part Name
+        /// </summary>
+        string Name { get; set; }
     }
 }

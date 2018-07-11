@@ -26,5 +26,8 @@ namespace TimeBeamTest.TestObjects {
     public override string ToString() {
       return string.Format( "Name: {0}", ID );
     }
+
+
+    public string Name { get; set; }
   }
 }
