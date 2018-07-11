@@ -180,7 +180,14 @@ namespace TimeBeam
         ///   The tracks currently placed on the timeline.
         /// </summary>
         private readonly List<IMultiPartTimelineTrack> _tracks = new List<IMultiPartTimelineTrack>();
-
+        /// <summary>
+        ///   The tracks currently placed on the timeline.
+        /// </summary>
+        public List<IMultiPartTimelineTrack> Tracks
+        {
+            get { return _tracks; }
+        } 
+        
         /// <summary>
         ///   The currently selected tracks.
         /// </summary>
