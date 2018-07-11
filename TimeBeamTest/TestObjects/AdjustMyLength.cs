@@ -15,16 +15,17 @@ namespace TimeBeamTest.TestObjects
             BackgroundColor = Color.LightBlue;
             ForeColor = Color.White;
             Font = new Font("宋体",12);
-            Text = "哈哈";
+            DisplayText = "哈哈";
+            //DisplayIcon = System.Drawing.Image.FromFile("c:\\a.png");
         }
 
         public float Start { get; set; }
         public float End { get; set; }
-        public string Name { get; set; }
+        public string ID { get; set; }
 
         public override string ToString()
         {
-            return string.Format("Name: {0}, End: {1}, Start: {2}", Name, End, Start);
+            return string.Format("Name: {0}, End: {1}, Start: {2}", ID, End, Start);
         }
 
         public System.Drawing.Color BackgroundColor { get; set; }
@@ -33,6 +34,8 @@ namespace TimeBeamTest.TestObjects
 
         public System.Drawing.Font Font { get; set; }
 
-        public string Text { get; set; }
+        public string DisplayText { get; set; }
+
+        public Image DisplayIcon { get; set; }
     }
 }

@@ -10,13 +10,13 @@ namespace TimeBeamTest.TestObjects {
 
     private List<AdjustMyLength> Parts = new List<AdjustMyLength>();
 
-    public string Name { get; set; }
+    public string ID { get; set; }
 
     public AdjustMyParts( float distanceBetweenParts ) {
       for( int partIndex = 0; partIndex < 10; partIndex++ ) {
         AdjustMyLength part = new AdjustMyLength {
           Start = (20+ distanceBetweenParts) * partIndex ,
-          Name = "Part " + partIndex
+          ID = "Part " + partIndex
         };
         part.End = part.Start + 20;
         Parts.Add( part );
@@ -24,7 +24,7 @@ namespace TimeBeamTest.TestObjects {
     }
 
     public override string ToString() {
-      return string.Format( "Name: {0}", Name );
+      return string.Format( "Name: {0}", ID );
     }
   }
 }

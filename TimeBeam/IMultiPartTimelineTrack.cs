@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
 
-namespace TimeBeam {
-  /// <summary>
-  ///   A timeline track that contains multiple parts.
-  /// </summary>
-  public interface IMultiPartTimelineTrack : ITimelineTrackBase {
+namespace TimeBeam
+{
     /// <summary>
-    ///   The elements within this track.
+    ///   A timeline track that contains multiple parts.
     /// </summary>
-    IEnumerable<ITimelineTrack> TrackElements { get; }
-  }
+    public interface IMultiPartTimelineTrack : ITimelineTrackBase
+    {
+        /// <summary>
+        ///   The elements within this track.
+        /// </summary>
+        IEnumerable<ITimelineTrack> TrackElements { get; }
+    }
 }

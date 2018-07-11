@@ -23,9 +23,9 @@ namespace TimeBeam.Surrogates {
     ///   The name of the track.
     ///   This will be displayed alongside the track in the timeline.
     /// </summary>
-    public string Name {
-      get { return _wrappedTrack.Name; }
-      set { _wrappedTrack.Name = value; }
+    public string ID {
+      get { return _wrappedTrack.ID; }
+      set { _wrappedTrack.ID = value; }
     }
 
     /// <summary>

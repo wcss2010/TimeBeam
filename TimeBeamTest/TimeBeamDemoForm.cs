@@ -26,13 +26,13 @@ namespace TimeBeamTest
         private void TimeBeamDemoForm_Load(object sender, EventArgs e)
         {
             List<AdjustMyLength> tracks = new List<AdjustMyLength> {
-        new AdjustMyLength{Start=0,  End=50, Name="Position X"},
-        new AdjustMyLength{Start=20, End=150,Name="Position Y"},
-        new AdjustMyLength{Start=220,End=550,Name="Position Z"},
-        new AdjustMyLength{Start=520,End=650,Name="Rotation X"},
-        new AdjustMyLength{Start=100,End=150,Name="Position Y"},
-        new AdjustMyLength{Start=120,End=250,Name="Position Z"},
-        new AdjustMyLength{Start=320,End=650,Name="Alpha"}
+        new AdjustMyLength{Start=0,  End=50, ID="Position X"},
+        new AdjustMyLength{Start=20, End=150,ID="Position Y"},
+        new AdjustMyLength{Start=220,End=550,ID="Position Z"},
+        new AdjustMyLength{Start=520,End=650,ID="Rotation X"},
+        new AdjustMyLength{Start=100,End=150,ID="Position Y"},
+        new AdjustMyLength{Start=120,End=250,ID="Position Z"},
+        new AdjustMyLength{Start=320,End=650,ID="Alpha"}
       };
 
             foreach (AdjustMyLength track in tracks)
@@ -40,8 +40,8 @@ namespace TimeBeamTest
                 timeline1.AddTrack(track);
             }
 
-            timeline1.AddTrack(new AdjustMyParts(20) { Name = "Visible" });
-            timeline1.AddTrack(new AdjustMyParts(0) { Name = "Visible" });
+            timeline1.AddTrack(new AdjustMyParts(20) { ID = "Visible" });
+            timeline1.AddTrack(new AdjustMyParts(0) { ID = "Visible" });
 
             timeline1.SelectionChanged += TimelineSelectionChanged;
 

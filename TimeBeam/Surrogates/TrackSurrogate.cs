@@ -21,7 +21,7 @@
     /// <summary>
     ///   The name of the item.
     /// </summary>
-    public string Name { get; set; }
+    public string ID { get; set; }
 
     /// <summary>
     ///   Construct a new surrogate for another <see cref="ITimelineTrack" />.
@@ -31,7 +31,7 @@
       SubstituteFor = substituteFor;
       Start = substituteFor.Start;
       End = substituteFor.End;
-      Name = substituteFor.Name;
+      ID = substituteFor.ID;
     }
 
     /// <summary>
@@ -60,6 +60,8 @@
 
     public System.Drawing.Font Font { get; set; }
 
-    public string Text { get; set; }
+    public string DisplayText { get; set; }
+
+    public System.Drawing.Image DisplayIcon { get; set; }
   }
 }

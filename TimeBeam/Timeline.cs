@@ -58,7 +58,7 @@ namespace TimeBeam
         /// <summary>
         ///   Backing field for <see cref="TrackHeight" />.
         /// </summary>
-        private int _trackHeight = 30;
+        private int _trackHeight = 32;
 
         /// <summary>
         ///   How wide/high the border on a track item should be.
@@ -656,13 +656,21 @@ namespace TimeBeam
 
                 graphics.DrawRectangle(new Pen(borderColor, TrackBorderSize), trackExtent.X, trackExtent.Y, trackExtent.Width, trackExtent.Height);
 
+                //Draw Track Icon
+                int imageWidth = 0;
+                if (track.DisplayIcon != null)
+                {
+                    imageWidth = TrackHeight;
+                    graphics.DrawImage(track.DisplayIcon, new RectangleF(trackExtent.X + TrackBorderSize, trackExtent.Y + TrackBorderSize, TrackHeight - (TrackBorderSize * 2 + 1), TrackHeight - (TrackBorderSize * 2 + 1)));
+                }
+
                 //Draw Track Text
                 if (track.Font != null)
                 {
                     StringFormat sf = new StringFormat();
                     sf.Alignment = StringAlignment.Center;
                     sf.LineAlignment = StringAlignment.Center;
-                    graphics.DrawString(track.Text, track.Font, new SolidBrush(track.ForeColor), trackExtent, sf);
+                    graphics.DrawString(track.DisplayText, track.Font, new SolidBrush(track.ForeColor), new RectangleF(trackExtent.X + imageWidth, trackExtent.Y, trackExtent.Width - imageWidth, trackExtent.Height), sf);
                 }
             }
         }
@@ -679,7 +687,7 @@ namespace TimeBeam
                 RectangleF trackExtents = BoundsHelper.GetTrackExtents(track.TrackElements.First(), this);
                 RectangleF labelRect = new RectangleF(0, trackExtents.Y, TrackLabelWidth, trackExtents.Height);
                 graphics.FillRectangle(new SolidBrush(Color.FromArgb(30, 30, 30)), labelRect);
-                graphics.DrawString(track.Name, _labelFont, Brushes.LightGray, labelRect);
+                graphics.DrawString(track.ID, _labelFont, Brushes.LightGray, labelRect);
             }
         }
 

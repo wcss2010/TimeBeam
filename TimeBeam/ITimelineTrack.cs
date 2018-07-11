@@ -32,8 +32,13 @@ namespace TimeBeam
         Font Font { get; set; }
 
         /// <summary>
-        /// Track Text
+        /// Track Display Text
         /// </summary>
-        string Text { get; set; }
+        string DisplayText { get; set; }
+
+        /// <summary>
+        /// Track Display Icon(Size=TrackHeight*TrackHeight)
+        /// </summary>
+        Image DisplayIcon { get; set; }
     }
 }
