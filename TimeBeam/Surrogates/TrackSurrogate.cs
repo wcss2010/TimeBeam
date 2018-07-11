@@ -53,5 +53,13 @@
     public void Deselected() {
       // Nothing to do.
     }
+
+    public System.Drawing.Color BackgroundColor { get; set; }
+
+    public System.Drawing.Color ForeColor { get; set; }
+
+    public System.Drawing.Font Font { get; set; }
+
+    public string Text { get; set; }
   }
 }

@@ -12,17 +12,20 @@ using TimeBeam.Events;
 using TimeBeam.Timing;
 using TimeBeamTest.TestObjects;
 
-namespace TimeBeamTest {
-  public partial class TimeBeamDemoForm : Form {
+namespace TimeBeamTest
+{
+    public partial class TimeBeamDemoForm : Form
+    {
+        private TimeBeamClockImpl _clock = new TimeBeamClockImpl();
 
-    private TimeBeamClock _clock = new TimeBeamClock();
+        public TimeBeamDemoForm()
+        {
+            InitializeComponent();
+        }
 
-    public TimeBeamDemoForm() {
-      InitializeComponent();
-    }
-
-    private void TimeBeamDemoForm_Load( object sender, EventArgs e ) {
-      List<AdjustMyLength> tracks = new List<AdjustMyLength> {
+        private void TimeBeamDemoForm_Load(object sender, EventArgs e)
+        {
+            List<AdjustMyLength> tracks = new List<AdjustMyLength> {
         new AdjustMyLength{Start=0,  End=50, Name="Position X"},
         new AdjustMyLength{Start=20, End=150,Name="Position Y"},
         new AdjustMyLength{Start=220,End=550,Name="Position Z"},
@@ -32,49 +35,61 @@ namespace TimeBeamTest {
         new AdjustMyLength{Start=320,End=650,Name="Alpha"}
       };
 
-      foreach( AdjustMyLength track in tracks ) {
-        timeline1.AddTrack( track );
-      }
+            foreach (AdjustMyLength track in tracks)
+            {
+                timeline1.AddTrack(track);
+            }
 
-      timeline1.AddTrack( new  AdjustMyParts(20){Name="Visible"} );
-      timeline1.AddTrack( new  AdjustMyParts(0){Name="Visible"} );
+            timeline1.AddTrack(new AdjustMyParts(20) { Name = "Visible" });
+            timeline1.AddTrack(new AdjustMyParts(0) { Name = "Visible" });
 
-      timeline1.SelectionChanged += TimelineSelectionChanged;
+            timeline1.SelectionChanged += TimelineSelectionChanged;
 
-      // Register the clock with the timeline
-      timeline1.Clock = _clock;
-      // Activate the timer that invokes the clock to update.
-      timer1.Enabled = true;
-    }
-
-    private void TimelineSelectionChanged( object sender, SelectionChangedEventArgs selectionChangedEventArgs ) {
-      if( null != selectionChangedEventArgs.Deselected ) {
-        foreach( ITimelineTrackBase track in selectionChangedEventArgs.Deselected ) {
-          Debug.WriteLine( "Deselected: " + track );
+            // Register the clock with the timeline
+            timeline1.Clock = _clock;
+            // Activate the timer that invokes the clock to update.
+            timer1.Enabled = true;
         }
-      }
-      if( null != selectionChangedEventArgs.Selected ) {
-        foreach( ITimelineTrackBase track in selectionChangedEventArgs.Selected ) {
-          Debug.WriteLine( "Selected: " + track );
-        }
-      }
-    }
 
-    private void timer1_Tick( object sender, EventArgs e ) {
-      _clock.Update();
-      timeline1.Tick();
-    }
-
-    private void TimeBeamDemoForm_KeyUp( object sender, KeyEventArgs e ) {
-      if( e.KeyCode == Keys.Space ) {
-        if( _clock.IsRunning ) {
-          _clock.Pause();
-          Debug.WriteLine( "Clock paused." );
-        } else {
-          _clock.Play();
-          Debug.WriteLine( "Clock running." );
+        private void TimelineSelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
+        {
+            if (null != selectionChangedEventArgs.Deselected)
+            {
+                foreach (ITimelineTrackBase track in selectionChangedEventArgs.Deselected)
+                {
+                    Debug.WriteLine("Deselected: " + track);
+                }
+            }
+            if (null != selectionChangedEventArgs.Selected)
+            {
+                foreach (ITimelineTrackBase track in selectionChangedEventArgs.Selected)
+                {
+                    Debug.WriteLine("Selected: " + track);
+                }
+            }
         }
-      }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            _clock.Update();
+            timeline1.Tick();
+        }
+
+        private void TimeBeamDemoForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                if (_clock.IsRunning)
+                {
+                    _clock.Pause();
+                    Debug.WriteLine("Clock paused.");
+                }
+                else
+                {
+                    _clock.Play();
+                    Debug.WriteLine("Clock running.");
+                }
+            }
+        }
     }
-  }
 }
