@@ -13,8 +13,8 @@ namespace TimeBeam
         IEnumerable<ITimelineTrack> TrackElements { get; }
 
         /// <summary>
-        /// The Part Name
+        /// The Part Display Text
         /// </summary>
-        string Name { get; set; }
+        string DisplayText { get; set; }
     }
 }

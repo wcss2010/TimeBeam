@@ -40,8 +40,8 @@ namespace TimeBeamTest
                 timeline1.AddTrack(track);
             }
 
-            timeline1.AddTrack(new AdjustMyParts(20) { Name = "Visible" });
-            timeline1.AddTrack(new AdjustMyParts(0) { Name = "Visible" });
+            timeline1.AddTrack(new AdjustMyParts(20) { DisplayText = "Visible" });
+            timeline1.AddTrack(new AdjustMyParts(0) { DisplayText = "Visible" });
 
             timeline1.SelectionChanged += TimelineSelectionChanged;
 

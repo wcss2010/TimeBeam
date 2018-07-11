@@ -40,10 +40,10 @@ namespace TimeBeam.Surrogates
         public SingleTrackToMultiTrackWrapper(ITimelineTrack track)
         {
             _wrappedTrack = track;
-            Name = _wrappedTrack.DisplayText;
+            DisplayText = _wrappedTrack.DisplayText;
             ID = "DeviceParts_" + Guid.NewGuid().ToString();
         }
 
-        public string Name { get; set; }
+        public string DisplayText { get; set; }
     }
 }
