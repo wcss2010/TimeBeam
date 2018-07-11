@@ -49,6 +49,8 @@ namespace TimeBeamTest
             timeline1.Clock = _clock;
             // Activate the timer that invokes the clock to update.
             timer1.Enabled = true;
+
+            timeline1.SelectTrack(tracks[5]);
         }
 
         private void TimelineSelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)

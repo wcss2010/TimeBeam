@@ -500,6 +500,20 @@ namespace TimeBeam
             float clockValue = (location.X - _renderingOffset.X - trackAreaBounds.X) * (1 / _renderingScale.X) * 1000f;
             Clock.Value = clockValue;
         }
+
+        /// <summary>
+        /// Select The Track
+        /// </summary>
+        /// <param name="obj"></param>
+        public void SelectTrack(ITimelineTrack obj)
+        {
+            if (obj != null)
+            {
+               RectangleF rectf = BoundsHelper.GetTrackExtents(obj, this);
+               OnMouseDown(new MouseEventArgs(System.Windows.Forms.MouseButtons.Left, 1, (int)rectf.X + 1, (int)rectf.Y + 1, 0));
+               OnMouseUp(new MouseEventArgs(System.Windows.Forms.MouseButtons.Left, 1, (int)rectf.X + 1, (int)rectf.Y + 1, 0));
+            }
+        }
         #endregion
 
         #region Drawing Methods
