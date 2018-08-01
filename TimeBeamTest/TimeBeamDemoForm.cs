@@ -40,8 +40,8 @@ namespace TimeBeamTest
                 timeline1.AddTrack(track);
             }
 
-            timeline1.AddTrack(new AdjustMyParts(20) { DisplayText = "Visible" });
-            timeline1.AddTrack(new AdjustMyParts(0) { DisplayText = "Visible" });
+            timeline1.AddTrack(new AdjustMyParts(100000) { DisplayText = "Visible" });
+            timeline1.AddTrack(new AdjustMyParts(2) { DisplayText = "Visible" });
 
             timeline1.SelectionChanged += TimelineSelectionChanged;
 
@@ -51,6 +51,7 @@ namespace TimeBeamTest
             timer1.Enabled = true;
 
             timeline1.SelectTrack(tracks[5]);
+            
         }
 
         private void TimelineSelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)

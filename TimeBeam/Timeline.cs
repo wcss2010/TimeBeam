@@ -323,6 +323,8 @@ namespace TimeBeam
         }
         #endregion
 
+        #region TrackAdd
+
         /// <summary>
         ///   Add a track to the timeline.
         /// </summary>
@@ -355,6 +357,14 @@ namespace TimeBeam
                 Invalidate();
             }
         }
+
+        public void UpdateTracks()
+        {
+            RecalculateScrollbarBounds();
+            Invalidate();
+        }
+
+        #endregion
 
         #region Helpers
         /// <summary>
@@ -1531,6 +1541,20 @@ namespace TimeBeam
                     ScrollbarV.Value -= e.Delta / 10;
                 }
             }
+
+            Invalidate();
+        }
+
+        public void SetScrollBarHPos(int value)
+        {
+            ScrollbarH.Value = value;
+
+            Invalidate();
+        }
+
+        public void SetScrollBarVPos(int value)
+        {
+            ScrollbarV.Value = value;
 
             Invalidate();
         }
